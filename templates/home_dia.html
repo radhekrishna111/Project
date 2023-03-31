@@ -4,46 +4,221 @@
     <head>
         <meta charset="utf-8">
         <title>Diabetes Predictor</title>
-        <link rel="shortcut icon" href="{{ url_for('static', filename='diabetes-favicon.ico') }}">
+        <!-- <link rel="shortcut icon" href="{{ url_for('static', filename='diabetes-favicon.ico') }}">
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles_dia.css') }}">
         <script src="https://kit.fontawesome.com/5f3f547070.js" crossorigin="anonymous"></script>
-        <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet"> -->
+        <script src="https://cdn.tailwindcss.com"></script>
     </head>
-
+  
     <body>
+      <header class="text-gray-600 body-font">
+        <div
+          class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center"
+        >
+          <a
+            class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              class="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"
+              ></path>
+            </svg>
+            <span class="ml-3 text-xl">Team Project</span>
+          </a>
+          <nav
+            class="md:ml-auto flex flex-wrap items-center text-base justify-center"
+          >
+            <a
+              class="mr-5 hover:text-gray-900 hover:underline hover:font-semibold"
+              href="/"
+              >Home</a
+            >
+            <a
+              class="mr-5 hover:text-gray-900 hover:underline hover:font-semibold"
+              href="/spam"
+              >Scam Detector</a
+            >
+            <a
+              class="mr-5 hover:text-gray-900 hover:underline hover:font-semibold"
+              href="/rest"
+              >Resturant Review</a
+            >
+            <a
+              class="mr-5 hover:text-gray-900 hover:underline hover:font-semibold"
+              href="/movie"
+              >Movie Genre</a
+            >
+            <a
+              class="mr-5 hover:text-gray-900 hover:underline hover:font-semibold"
+              href="/diabetes"
+              >Diabetes Predictor</a
+            >
+          </nav>
+        </div>
+      </header>
+      <div class="px-4 md:px-10 lg:w-4/5 mx-auto min-h-screen">
 
         <!-- Website Title -->
-    	<div class="container">
-            <h2 class='container-heading'><span class="heading_font">Diabetes Predictor</span></h2>
-            <div class='description'>
-    			<p>A Machine Learning Web App, Built with Flask, Deployed using Heroku.</p>
-    		</div>
-    	</div>
-
+        <div class="container text-center mt-12 lg:mt-16 mb-10">
+            <h2 class="text-3xl md:text-4xl font-bold"><span class="text-indigo-600 heading_font">Diabetes Predictor</span></h2>
+            <div class="description text-gray-700 text-lg md:text-xl">
+                <p>A Machine Learning Web App, Built with Flask, Deployed using Heroku.</p>
+            </div>
+        </div>
+    
         <!-- Text Area -->
-    	<div class="ml-container">
-    		<form action="{{ url_for('predict_dia') }}" method="POST">
-                <input class="form-input" type="text" name="pregnancies" placeholder="Number of Pregnancies eg. 0"><br>
-                <input class="form-input" type="text" name="glucose" placeholder="Glucose (mg/dL) eg. 80"><br>
-                <input class="form-input" type="text" name="bloodpressure" placeholder="Blood Pressure (mmHg) eg. 80"><br>
-                <input class="form-input" type="text" name="skinthickness" placeholder="Skin Thickness (mm) eg. 20"><br>
-                <input class="form-input" type="text" name="insulin" placeholder="Insulin Level (IU/mL) eg. 80"><br>
-                <input class="form-input" type="text" name="bmi" placeholder="Body Mass Index (kg/m²) eg. 23.1"><br>
-                <input class="form-input" type="text" name="dpf" placeholder="Diabetes Pedigree Function eg. 0.52"><br>
-                <input class="form-input" type="text" name="age" placeholder="Age (years) eg. 34"><br>
-
-        		<input type="submit" class="my-cta-button" value="Predict">
-        	</form>
-    	</div>
-
+        <div class="ml-container max-w-xl mx-auto">
+            <form action="{{ url_for('predict_dia') }}" method="POST">
+                <div class="flex flex-wrap justify-between mb-4">
+                    <div class="w-full md:w-1/2 md:pr-2 mb-4">
+                        <input class="form-input px-2 py-1 outline-1 outline-violet-400 outline rounded-md w-full" type="text" name="pregnancies" placeholder="Number of Pregnancies eg. 0">
+                    </div>
+                    <div class="w-full md:w-1/2 md:pl-2">
+                        <input class="form-input px-2 py-1 outline-1 outline-violet-400 outline rounded-md w-full" type="text" name="glucose" placeholder="Glucose (mg/dL) eg. 80">
+                    </div>
+                </div>
+                <div class="flex flex-wrap justify-between mb-4">
+                    <div class="w-full md:w-1/2 md:pr-2 mb-4">
+                        <input class="form-input px-2 py-1 outline-1 outline-violet-400 outline rounded-md w-full" type="text" name="bloodpressure" placeholder="Blood Pressure (mmHg) eg. 80">
+                    </div>
+                    <div class="w-full md:w-1/2 md:pl-2">
+                        <input class="form-input px-2 py-1 outline-1 outline-violet-400 outline rounded-md w-full" type="text" name="skinthickness" placeholder="Skin Thickness (mm) eg. 20">
+                    </div>
+                </div>
+                <div class="flex flex-wrap justify-between mb-4">
+                    <div class="w-full md:w-1/2 md:pr-2 mb-4">
+                        <input class="form-input px-2 py-1 outline-1 outline-violet-400 outline rounded-md w-full" type="text" name="insulin" placeholder="Insulin Level (IU/mL) eg. 80">
+                    </div>
+                    <div class="w-full md:w-1/2 md:pl-2">
+                        <input class="form-input px-2 py-1 outline-1 outline-violet-400 outline rounded-md w-full" type="text" name="bmi" placeholder="Body Mass Index (kg/m²) eg. 23.1">
+                    </div>
+                </div>
+                <div class="flex flex-wrap justify-between mb-4">
+                    <div class="w-full md:w-1/2 md:pr-2 mb-4">
+                        <input class="form-input px-2 py-1 outline-1 outline-violet-400 outline rounded-md w-full" type="text" name="dpf" placeholder="Diabetes Pedigree Function eg. 0.52">
+                    </div>
+                    <div class="w-full md:w-1/2 md:pl-2">
+                        <input class="form-input px-2 py-1 outline-1 outline-violet-400 outline rounded-md w-full" type="text" name="age" placeholder="Age (years) eg. 34">
+                    </div>
+                </div>
+    
+                <input type="submit" class="my-cta-button mx-auto block px-6 py-2 text-lg font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-500 focus:outline-none focus:shadow-outline" value="Predict">
+            </form>
+        </div>
+    </div>
+    
         <!-- Footer -->
-       <div class='footer'>
-           <div class="contact">
-               <a target="_blank" href="https://github.com/anujvyas/Diabetes-Prediction-Deployment"><i class="fab fa-github fa-lg contact-icon"></i></a>
-               <a target="_blank" href="https://www.linkedin.com/in/anujkvyas"><i class="fab fa-linkedin fa-lg contact-icon"></i></a>
-           </div>
-           <p class='footer-description'>Made with ❤️ by Anuj Vyas.</p>
-       </div>
+    <footer class="text-gray-600 body-font">
+        <div
+          class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col"
+        >
+          <a
+            class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              class="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"
+              ></path>
+            </svg>
+            <span class="ml-3 text-xl">Team Project</span>
+          </a>
+          <p
+            class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4"
+          >
+            © 2023 Team Project —
+            <a
+              href="/"
+              class="text-gray-600 ml-1"
+              rel="noopener noreferrer"
+              >@machinelearning</a
+            >
+          </p>
+          <span
+            class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start"
+          >
+            <a class="text-gray-500">
+              <svg
+                fill="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                class="w-5 h-5"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"
+                ></path>
+              </svg>
+            </a>
+            <a class="ml-3 text-gray-500">
+              <svg
+                fill="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                class="w-5 h-5"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"
+                ></path>
+              </svg>
+            </a>
+            <a class="ml-3 text-gray-500">
+              <svg
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                class="w-5 h-5"
+                viewBox="0 0 24 24"
+              >
+                <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                <path
+                  d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"
+                ></path>
+              </svg>
+            </a>
+            <a class="ml-3 text-gray-500">
+              <svg
+                fill="currentColor"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="0"
+                class="w-5 h-5"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke="none"
+                  d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"
+                ></path>
+                <circle cx="4" cy="4" r="2" stroke="none"></circle>
+              </svg>
+            </a>
+          </span>
+        </div>
+      </footer>
 
     </body>
 </html>

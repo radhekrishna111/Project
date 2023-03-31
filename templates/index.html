@@ -1,20 +1,541 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
-    <script src="https://kit.fontawesome.com/5f3f547070.js" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-</head>
-<body>
-    <div class="container">
-        <a href="/spam">Spam Detection</a>
-        <a href="/rest">Resturant Review Classfication</a>
-        <a href="/movie">Movie Genre Classfication</a>
-        <a href="/diabetes">Diabetes Predictor</a>    
-    </div>   
-</body>
+    <!-- <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}"> -->
+    <script
+      src="https://kit.fontawesome.com/5f3f547070.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet"> -->
+    <!-- <link rel="stylesheet" href="{{url_for('static',filename='css/main.css')}}" /> -->
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <header class="text-gray-600 body-font">
+      <div
+        class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center"
+      >
+        <a
+          class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            class="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"
+            ></path>
+          </svg>
+          <span class="ml-3 text-xl">Team Project</span>
+        </a>
+        <nav
+          class="md:ml-auto flex flex-wrap items-center text-base justify-center"
+        >
+          <a class="mr-5 hover:text-gray-900 hover:underline hover:font-semibold" href="/">Home</a>
+          <a class="mr-5 hover:text-gray-900 hover:underline hover:font-semibold" href="/spam">Scam Detector</a>
+          <a class="mr-5 hover:text-gray-900 hover:underline hover:font-semibold" href="/rest">Resturant Review</a>
+          <a class="mr-5 hover:text-gray-900 hover:underline hover:font-semibold" href="/movie">Movie Genre</a>
+          <a class="mr-5 hover:text-gray-900 hover:underline hover:font-semibold" href="/diabetes">Diabetes Predictor</a>
+        </nav>
+      </div>
+    </header>
+
+    <div class="px-10 lg:w-4/5 mx-auto">
+    <section class="text-gray-600 body-font">
+      <div
+        class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center"
+      >
+        <div
+          class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center"
+        >
+          <h1
+            class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900"
+          >
+            Machine Learning Projects
+          </h1>
+          <p class="mb-8 leading-relaxed">
+            Machine learning is a type of AI that enables machines to learn from
+            data and make predictions or decisions without being explicitly
+            programmed. It involves building algorithms that can continuously
+            improve their performance by processing and analyzing large amounts
+            of data.
+          </p>
+          <div class="flex justify-center">
+            <a href="#projects"
+              class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg"
+            >
+              Start Now
+            </a>
+          </div>
+        </div>
+        <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
+          <img
+            class="object-cover object-center rounded"
+            alt="hero"
+            src="https://fresheropenings.com/wp-content/uploads/2020/11/Free-Machine-Learning-Certification.jpg"
+          />
+        </div>
+      </div>
+    </section>
+
+    <section class="text-gray-600 body-font" id="projects">
+      <div class="container px-5 py-24 mx-auto">
+        <div class="text-center mb-20">
+          <h1
+            class="sm:text-3xl text-2xl font-medium title-font text-gray-900 mb-4"
+          >
+            Machine Learning Projects
+          </h1>
+          <p
+            class="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto text-gray-500s"
+          >
+            Here we are providing some projects based on machine learning. Here
+            you can try these one's
+          </p>
+          <div class="flex mt-6 justify-center">
+            <div class="w-16 h-1 rounded-full bg-indigo-500 inline-flex"></div>
+          </div>
+        </div>
+        <div
+          class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4 md:space-y-0 space-y-6"
+        >
+        <a href="/spam">
+          <div class="p-4 md:w-1/2 flex flex-col text-center items-center hover:shadow-xl cursor-pointer">
+            <div class="w-20 h-20 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-5 flex-shrink-0">
+              <!-- <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10" viewBox="0 0 24 24">
+                <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+              </svg> -->
+              <img src="https://w7.pngwing.com/pngs/435/209/png-transparent-email-spam-email-spam-trojan-logo-website-internet-forum-thumbnail.png" alt="sapm-detector"  stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-auto h-auto rounded-full outline-1 outline-gray-600" viewBox="0 0 24 24">
+            </div>
+            <div class="flex-grow">
+              <h2 class="text-gray-900 text-lg font-medium title-font mb-3">Spam Detection</h2>
+              <p class="leading-relaxed text-base">
+                Spam detection is the process of identifying and filtering out unwanted messages using techniques such as content-based filtering, blacklisting, and machine learning algorithms.
+              </p>
+              <a class="mt-3 text-indigo-500 inline-flex items-center" href="#">Let's try
+                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                  <path d="M5 12h14M12 5l7 7-7 7"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </a>
+        
+          <a href="/rest"
+            ><div
+              class="p-4 md:w-1/2 flex flex-col text-center items-center hover:shadow-xl cursor-pointer"
+            >
+              <div
+                class="w-20 h-20 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-5 flex-shrink-0"
+              >
+                <!-- <svg
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  class="w-10 h-10"
+                  viewBox="0 0 24 24"
+                >
+                  <circle cx="6" cy="6" r="3"></circle>
+                  <circle cx="6" cy="18" r="3"></circle>
+                  <path
+                    d="M20 4L8.12 15.88M14.47 14.48L20 20M8.12 8.12L12 12"
+                  ></path>
+                </svg> -->
+                <img src="https://w7.pngwing.com/pngs/710/222/png-transparent-restaurant-computer-icons-food-resturant-miscellaneous-cdr-logo-thumbnail.png" alt="sapm-detector"  stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-auto h-auto rounded-full outline-1 outline-gray-600" viewBox="0 0 24 24">
+              </div>
+              <div class="flex-grow">
+                <h2 class="text-gray-900 text-lg title-font font-medium mb-3">
+                  Resturant Review
+                </h2>
+                <p class="leading-relaxed text-base">
+                  Restaurant review classification categorizes customer reviews
+                  into positive or negative sentiment using machine learning and
+                  natural language processing.
+                </p>
+                <a class="mt-3 text-indigo-500 inline-flex items-center"
+                  >Let's try
+                  <svg
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    class="w-4 h-4 ml-2"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M5 12h14M12 5l7 7-7 7"></path>
+                  </svg>
+                </a>
+              </div></div
+          ></a>
+          <a href="/movie"
+            ><div
+              class="p-4 md:w-1/2 flex flex-col text-center items-center hover:shadow-xl cursor-pointer"
+            >
+              <div
+                class="w-20 h-20 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-5 flex-shrink-0"
+              >
+                <!-- <svg
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  class="w-10 h-10"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg> -->
+                
+                <img src="https://w7.pngwing.com/pngs/130/1021/png-transparent-movie-logo-movie-logo-film-tape-cinema-thumbnail.png" alt="sapm-detector"  stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-auto h-auto rounded-full outline-1 outline-gray-600" viewBox="0 0 24 24">
+              </div>
+              <div class="flex-grow">
+                <h2 class="text-gray-900 text-lg title-font font-medium mb-3">
+                  Movie Genre Classfication
+                </h2>
+                <p class="leading-relaxed text-base">
+                  Movie genre classification involves automatically categorizing
+                  movies into different genres using machine learning algorithms
+                  by analyzing various features such as plot, cast, and visuals.
+                </p>
+                <a class="mt-3 text-indigo-500 inline-flex items-center"
+                  >Let's try
+                  <svg
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    class="w-4 h-4 ml-2"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M5 12h14M12 5l7 7-7 7"></path>
+                  </svg>
+                </a>
+              </div></div
+          ></a>
+          <a href="/diabetes"
+            ><div
+              class="p-4 md:w-1/2 flex flex-col text-center items-center hover:shadow-xl cursor-pointer"
+            >
+              <div
+                class="w-20 h-20 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-5 flex-shrink-0"
+              >
+                <!-- <svg
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  class="w-10 h-10"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg> -->
+                <img src="https://e7.pngegg.com/pngimages/2/115/png-clipart-school-surgeon-diabetes-mellitus-hand-sign-thumbnail.png" alt="sapm-detector"  stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-auto h-auto rounded-full outline-1 outline-gray-600" viewBox="0 0 24 24">
+              </div>
+              <div class="flex-grow">
+                <h2 class="text-gray-900 text-lg title-font font-medium mb-3">
+                  Diabetes Predictor
+                </h2>
+                <p class="leading-relaxed text-base">
+                  A diabetes predictor is a predictive model that uses various
+                  factors such as age, BMI, and blood sugar levels to determine
+                  the likelihood of a person developing diabetes in the future.
+                </p>
+                <a class="mt-3 text-indigo-500 inline-flex items-center"
+                  >Let's try
+                  <svg
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    class="w-4 h-4 ml-2"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M5 12h14M12 5l7 7-7 7"></path>
+                  </svg>
+                </a>
+              </div></div
+          ></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Container for demo purpose -->
+<div class="container my-24 px-6 mx-auto">
+
+  <!-- Section: Design Block -->
+  <section class="mb-32 text-gray-800 text-center">
+    <h2 class="text-3xl font-bold mb-32">Meet the <u class="text-blue-600">team</u></h2>
+
+    <div class="grid gap-x-6 lg:gap-x-12 md:grid-cols-4">
+      <!-- Krishna Kumar Mukhiya -->
+      <div class="mb-24 md:mb-0">
+        <div class="rounded-lg shadow-lg h-full block bg-white">
+          <div class="flex justify-center">
+            <div class="flex justify-center" style="margin-top: -75px">
+              <img src="https://i.ibb.co/cr22RVV/mukhiya.jpg" class="rounded-full mx-auto shadow-lg w-20 h-36 object-cover" alt=""
+                style="width: 150px" />
+            </div>
+          </div>
+          <div class="p-6">
+            <h5 class="text-lg font-bold mb-4">Krishna Mukhiya</h5>
+            <p class="mb-6">Team Leader</p>
+            <ul class="list-inside flex mx-auto justify-center">
+              <a href="#!" class="px-2">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" class="w-4 h-4 text-blue-600">
+                  <path fill="currentColor"
+                    d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z" />
+                </svg>
+              </a>
+              <a href="#!" class="px-2">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-4 h-4 text-blue-600">
+                  <path fill="currentColor"
+                    d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z" />
+                </svg>
+              </a>
+              <a href="#!" class="px-2">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="w-4 h-4 text-blue-600">
+                  <path fill="currentColor"
+                    d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z" />
+                </svg>
+              </a>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Shubham kumar  -->
+      <div class="mb-24 md:mb-0">
+        <div class="rounded-lg shadow-lg h-full block bg-white">
+          <div class="flex justify-center">
+            <div class="flex justify-center" style="margin-top: -75px">
+              <img src="https://i.ibb.co/DWzScdP/shubham.jpg" class="rounded-full mx-auto shadow-lg w-20 h-36 object-cover" alt=""
+                style="width: 150px" />
+            </div>
+          </div>
+          <div class="p-6">
+            <h5 class="text-lg font-bold mb-4">Shubham Kumar</h5>
+            <p class="mb-6">Developing Expert</p>
+            <ul class="list-inside flex mx-auto justify-center">
+              <a href="#!" class="px-2">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" class="w-4 h-4 text-blue-600">
+                  <path fill="currentColor"
+                    d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z" />
+                </svg>
+              </a>
+              <a href="#!" class="px-2">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-4 h-4 text-blue-600">
+                  <path fill="currentColor"
+                    d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z" />
+                </svg>
+              </a>
+              <a href="#!" class="px-2">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="w-4 h-4 text-blue-600">
+                  <path fill="currentColor"
+                    d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z" />
+                </svg>
+              </a>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Abhishek kumar  -->
+      <div class="mb-24 md:mb-0">
+        <div class="rounded-lg shadow-lg h-full block bg-white">
+          <div class="flex justify-center">
+            <div class="flex justify-center" style="margin-top: -75px">
+              <img src="https://i.ibb.co/QPHKQcK/abhishek.jpg" class="rounded-full mx-auto shadow-lg" alt=""
+                style="width: 150px" />
+            </div>
+          </div>
+          <div class="p-6">
+            <h5 class="text-lg font-bold mb-4">Aabhishek Kumar</h5>
+            <p class="mb-6">Backend Developer</p>
+            <ul class="list-inside flex mx-auto justify-center">
+              <a href="#!" class="px-2">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" class="w-4 h-4 text-blue-600">
+                  <path fill="currentColor"
+                    d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z" />
+                </svg>
+              </a>
+              <a href="#!" class="px-2">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-4 h-4 text-blue-600">
+                  <path fill="currentColor"
+                    d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z" />
+                </svg>
+              </a>
+              <a href="#!" class="px-2">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="w-4 h-4 text-blue-600">
+                  <path fill="currentColor"
+                    d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z" />
+                </svg>
+              </a>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Rohit Kumar  -->
+      <div class="mb-24 md:mb-0">
+        <div class="rounded-lg shadow-lg h-full block bg-white">
+          <div class="flex justify-center">
+            <div class="flex justify-center" style="margin-top: -75px">
+              <img src="https://i.ibb.co/bPrrrFt/rohit.jpg" class="rounded-full mx-auto shadow-lg w-20 h-36 object-fit" alt=""
+                style="width: 150px" />
+            </div>
+          </div>
+          <div class="p-6">
+            <h5 class="text-lg font-bold mb-4">Rohit Kumar Rajak
+            </h5>
+            <p class="mb-6">Web Designer</p>
+            <ul class="list-inside flex mx-auto justify-center">
+              <a href="#!" class="px-2">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" class="w-4 h-4 text-blue-600">
+                  <path fill="currentColor"
+                    d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z" />
+                </svg>
+              </a>
+              <a href="#!" class="px-2">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-4 h-4 text-blue-600">
+                  <path fill="currentColor"
+                    d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z" />
+                </svg>
+              </a>
+              <a href="#!" class="px-2">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="w-4 h-4 text-blue-600">
+                  <path fill="currentColor"
+                    d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z" />
+                </svg>
+              </a>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </section>
+  <!-- Section: Design Block -->
+
+</div>
+<!-- Container for demo purpose -->
+
+    <section class="text-gray-600 body-font relative">
+      <div class="container px-5 py-24 mx-auto">
+        <div class="flex flex-col text-center w-full mb-12">
+          <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Contact Us</h1>
+          <p class="lg:w-2/3 mx-auto leading-relaxed text-base">If you have any query feel free to contact.</p>
+        </div>
+        <div class="lg:w-1/2 md:w-2/3 mx-auto">
+          <div class="flex flex-wrap -m-2">
+            <div class="p-2 w-1/2">
+              <div class="relative">
+                <label for="name" class="leading-7 text-sm text-gray-600">Name</label>
+                <input type="text" id="name" name="name" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+              </div>
+            </div>
+            <div class="p-2 w-1/2">
+              <div class="relative">
+                <label for="email" class="leading-7 text-sm text-gray-600">Email</label>
+                <input type="email" id="email" name="email" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+              </div>
+            </div>
+            <div class="p-2 w-full">
+              <div class="relative">
+                <label for="message" class="leading-7 text-sm text-gray-600">Message</label>
+                <textarea id="message" name="message" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
+              </div>
+            </div>
+            <div class="p-2 w-full">
+              <button class="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Button</button>
+            </div>
+            <div class="p-2 w-full pt-8 mt-8 border-t border-gray-200 text-center">
+              <a class="text-indigo-500">machinelearning@email.com</a>
+              <p class="leading-normal my-5">Darbhanga College of Engineering
+                <br>Darbhanga, Bihar
+              </p>
+              <span class="inline-flex">
+                <a class="text-gray-500">
+                  <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                    <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+                  </svg>
+                </a>
+                <a class="ml-4 text-gray-500">
+                  <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                    <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
+                  </svg>
+                </a>
+                <a class="ml-4 text-gray-500">
+                  <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                    <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+                  </svg>
+                </a>
+                <a class="ml-4 text-gray-500">
+                  <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                    <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"></path>
+                  </svg>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+    <footer class="text-gray-600 body-font">
+      <div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
+        <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full" viewBox="0 0 24 24">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+          </svg>
+          <span class="ml-3 text-xl">Team Project</span>
+        </a>
+        <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">© 2023 Team Project —
+          <a href="/" class="text-gray-600 ml-1" rel="noopener noreferrer">@machinelearning</a>
+        </p>
+        <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
+          <a class="text-gray-500">
+            <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+              <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+            </svg>
+          </a>
+          <a class="ml-3 text-gray-500">
+            <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+              <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
+            </svg>
+          </a>
+          <a class="ml-3 text-gray-500">
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+              <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+            </svg>
+          </a>
+          <a class="ml-3 text-gray-500">
+            <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="0" class="w-5 h-5" viewBox="0 0 24 24">
+              <path stroke="none" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path>
+              <circle cx="4" cy="4" r="2" stroke="none"></circle>
+            </svg>
+          </a>
+        </span>
+      </div>
+    </footer>
+  </body>
 </html>
